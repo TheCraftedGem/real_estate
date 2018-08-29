@@ -91,5 +91,19 @@ class HouseTest < Minitest::Test
     assert_equal 400000, house.convert_price_to_interger
   end
 
+  def test_group_by_category
+    skip
+    house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, 13)
+    room_2 = Room.new(:bedroom, 11, 15)
+    room_3 = Room.new(:living_room, 25, 15)
+    room_4 = Room.new(:basement, 30, 41)
+    house.add_room(room_1)
+    house.add_room(room_2)
+    house.add_room(room_3)
+    house.add_room(room_4)
+    expected = ({:bedroom=> [room_1, room_2], :living_room=> [room_3], :basement=> [room_4]})
+    assert_equal expected, house.rooms_by_category
+  end
   
 end

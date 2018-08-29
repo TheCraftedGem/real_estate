@@ -43,5 +43,16 @@ class House
      element.to_i
    end.join.to_i
   end
+
+  def rooms_by_category
+    house_hash = Hash.new(Array.new)
+    seperate_rooms = @rooms.each_slice(1).to_a
+   
+    seperate_rooms.map do |element|
+    
+    house_hash[element.category] = element
+  
+    end
+  end
 end
   
