@@ -1,5 +1,5 @@
 class Room 
-  attr_reader :category,
+  attr_accessor :category,
               :length,
               :width,
               :area
